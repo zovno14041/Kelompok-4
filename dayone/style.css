@@ -7,8 +7,10 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
     min-height: 100vh;
+    position: relative;
 }
 
 /* Stylized Navbar with Custom Background */
@@ -22,8 +24,8 @@ body {
     padding: 15px 30px;
     min-height: 70px;
     background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(15px); /* Enhanced blur effect */
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(5px); /* Reduced blur effect */
+    -webkit-backdrop-filter: blur(15px);
     border-bottom: 2px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 2px 20px rgba(255, 255, 255, 0.2);
     z-index: 1000;
@@ -39,7 +41,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(2px);
+    filter: blur(1px);
     transform: scale(1.06);
     z-index: -1;    transition: filter 0.3s ease;
 }
@@ -56,9 +58,9 @@ body {
 
 /* Hero Section */
 .hero-section {
-    padding: 120px 30px 60px;
+    padding: 60px 30px 30px;
     text-align: center;
-    min-height: 40vh;
+    min-height: 20vh;
 }
 
 /* Column Layout */
@@ -229,4 +231,91 @@ p {
     text-align: center;
     font-size: 1.2em;
     margin-top: 20px;
+}
+
+/* Lightbox */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 2000;
+    display: none;
+}
+
+#lightbox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        background: rgba(0, 0, 0, 0);
+    }
+    to {
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
+
+.lightbox-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+    animation: scaleIn 0.4s ease forwards;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+#lightbox-title {
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.8em;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#lightbox-desc {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1em;
+    line-height: 1.6;
+    margin-top: 15px;
+    padding: 0 20px;
+}
+
+/* Clickable column image */
+.column-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.column-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
 }
