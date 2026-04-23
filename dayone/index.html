@@ -3,11 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Suatu Galeri</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body> 
-    <h1>hello world</h1>
-    <p>keisha gemoy</p>
+<body>
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="#about" class="icon-link" title="Custom PNG Icon"><img src="ringlogo.jpg" alt="ring icon"></a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-section">
+        <h1>balls</h1>
+    </header>
+
+    <main class="content">
+        <section class="column-section top-row">
+            <div class="column">
+                <img src="image1.png" alt="Fauvism" class="column-image" onclick="openLightbox('image1.png', 'Fauvism', 'Portrait of Madame Matisse by Henri Matisse, 1905. via the National Gallery of Denmark, Copenhagen. Fauvism was a revolutionary, short-lived, early 20th-century art movement (roughly 1905–1908) that flourished in France, characterized by an intense, non-naturalistic use of color and spontaneous brushwork to express emotion.')">
+                <h2>Fauvism</h2>
+                <p>Portrait of Madame Matisse by Henri Matisse, 1905. via the National Gallery of Denmark, Copenhagen.</p>
+            </div>
+            <div class="column">
+                <img src="image2.png" alt="Suprematism" class="column-image" onclick="openLightbox('image2.png', 'Suprematism', 'Woman at the Tram Stop by Kazimir Malevich, 1913, via Stedelijk Museum, Amsterdam. Suprematism is an early 20th-century Russian avant-garde art movement, founded by Kazimir Malevich around 1913, focusing on pure geometric abstraction and the supremacy of pure feeling. ')">
+                <h2>Suprematism</h2>
+                <p>Woman at the Tram Stop by Kazimir Malevich, 1913, via Stedelijk Museum, Amsterdam. </p>
+            </div>
+            <div class="column">
+                <img src="image3.jpg" alt="Cubism" class="column-image" onclick="openLightbox('image3.jpg', 'Cubism', 'Three Musicians by Pablo Picasso, 1921, via the Pablo Picasso Museum, Barcelona. Cubism was a revolutionary art movement that fragmented objects into geometric shapes, showing multiple perspectives simultaneously.')">
+                <h2>Cubism</h2>
+                <p>Three Musicians by Pablo Picasso, 1921, via the Pablo Picasso Museum, Barcelona.</p>
+            </div>
+        </section>
+
+        <section class="column-section bottom-row">
+            <div class="column">
+                <img src="image4.jpg" alt="Pointillist" class="column-image" onclick="openLightbox('image4.jpg', 'Pointillism', 'Morning, Interior, by Maximilien Luce, 1890, via the Metropolitan Museum of Art, New York City. Pointillism uses small dots of pure color to create images when viewed from a distance, pioneered by Georges Seurat.')">
+                <h2>Pointillist</h2>
+                <p>
+                    Morning, Interior, by Maximilien Luce, 1890, via the Metropolitan Museum of Art, New York City.</p>
+            </div>
+            <div class="column">
+                <img src="image5.jpg" alt="Expressionism" class="column-image" onclick="openLightbox('image5.jpg', 'Expressionism', 'The Scream by Edvard Munch, 1983, via the Munch Museum, Oslo. Expressionism emphasizes emotional experience over physical reality, expressing inner feelings through distorted forms and bold colors.')">
+                <h2>Expressionism</h2>
+                <p>
+                    The Scream by Edvard Munch, 1983, via the Munch Museum, Oslo.</p>
+            </div>
+        </section>
+
+        <section class="segment" id="about">
+            <h2>About Section</h2>
+            <p>About content goes here</p>
+        </section>
+
+        <section class="segment">
+            <h2>Services</h2>
+            <p>Services content goes here</p>
+        </section>
+
+        <section class="segment">
+            <h2>Contact</h2>
+            <p>Contact content goes here</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Hai</p>
+    </footer>
+
+    <script>
+        // Navbar slide up on scroll
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                // Scrolling down - hide navbar
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up - show navbar
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Lightbox functions
+        function openLightbox(src, title, description) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxDesc = document.getElementById('lightbox-desc');
+            lightboxImg.src = src;
+            lightboxTitle.textContent = title;
+            lightboxDesc.textContent = description;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    </script>
+
+    <!-- Lightbox -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Full size image">
+            <h3 id="lightbox-title"></h3>
+            <p id="lightbox-desc"></p>
+        </div>
+    </div>
 </body>
 </html>

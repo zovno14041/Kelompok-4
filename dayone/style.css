@@ -1,3 +1,321 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Stylized Navbar with Custom Background */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    min-height: 70px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(5px); /* Reduced blur effect */
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 20px rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('navbarbg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(1px);
+    transform: scale(1.06);
+    z-index: -1;    transition: filter 0.3s ease;
+}
+
+.navbar:hover::before {
+    filter: blur(0);}
+
+/* Navbar scroll fade */
+#navbar {
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(0);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 60px 30px 30px;
+    text-align: center;
+    min-height: 20vh;
+}
+
+/* Column Layout */
+.column-section {
+    display: flex;
+    gap: 20px;
+    padding: 40px 30px;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.column-section .column {
+    flex: 1;
+    min-width: 250px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top row - 3 columns */
+.top-row {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.top-row .column {
+    max-width: calc(33.333% - 14px);
+}
+
+/* Bottom row - 2 columns centered */
+.bottom-row {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.bottom-row .column {
+    max-width: calc(50% - 10px);
+}
+
+.column-section .column h2 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.column-section .column p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Column Image */
+.column-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Segments */
+.segment {
+    padding: 60px 30px;
+    margin: 20px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    border-left: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+.segment h2 {
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 15px;
+}
+
+.segment p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    padding: 30px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    margin-top: 40px;
+}
+
+.footer p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.navbar li {
+    /* margin: 0 20px; */ /* Removed to allow space-between to work */
+}
+
+.navbar li a {
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 25px;    background: rgba(255, 255, 255, 0.9); /* Slightly white background for visibility */    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.navbar li a:hover::before {
+    left: 100%;
+}
+
+.navbar li a.icon-link {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.navbar li a.icon-link img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    filter: none;
+    display: block;
+    border: none;
+}
+
+/* Content below navbar */
 h1 {
-    color: rgb(0, 68, 255);
+    color: #fff;
+    text-align: center;
+    margin-top: 100px;
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    color: #fff;
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+/* Lightbox */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 2000;
+    display: none;
+}
+
+#lightbox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        background: rgba(0, 0, 0, 0);
+    }
+    to {
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
+
+.lightbox-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+    animation: scaleIn 0.4s ease forwards;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+#lightbox-title {
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.8em;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#lightbox-desc {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1em;
+    line-height: 1.6;
+    margin-top: 15px;
+    padding: 0 20px;
+}
+
+/* Clickable column image */
+.column-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.column-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
 }
