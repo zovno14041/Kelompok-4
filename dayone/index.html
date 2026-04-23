@@ -3,17 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aku Cinta Seni Lukis</title>
+    <title>Suatu Galeri</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body> 
-    <nav class="navbar">
+<body>
+    <nav class="navbar" id="navbar">
         <ul>
             <li><a href="index.html">home</a></li>
             <li><a href="#about" class="icon-link" title="Custom PNG Icon"><img src="ringlogo.jpg" alt="ring icon"></a></li>
         </ul>
     </nav>
-    <h1>balls</h1>
-    <p>ac</p>
+
+    <header class="hero-section">
+        <h1>balls</h1>
+    </header>
+
+    <main class="content">
+        <section class="column-section top-row">
+            <div class="column">
+                <img src="image1.png" alt="Fauvism" class="column-image">
+                <h2>Fauvism</h2>
+                <p>Portrait of Madame Matisse by Henri Matisse, 1905. Source: National Gallery of Denmark</p>
+            </div>
+            <div class="column">
+                <img src="image2.png" alt="Supremacist" class="column-image">
+                <h2>Supremacist</h2>
+                <p>Woman at the Tram Stop by Kazimir Malevich, 1913, via Stedelijk Museum, Amsterdam</p>
+            </div>
+            <div class="column">
+                <img src="image3.jpg" alt="Cubism" class="column-image">
+                <h2>Cubism</h2>
+                <p>Pablo Picasso <br>
+                    Three Musicians, 1921</p>
+            </div>
+        </section>
+
+        <section class="column-section bottom-row">
+            <div class="column">
+                <img src="image4.jpg" alt="Pointillist" class="column-image">
+                <h2>Pointillist</h2>
+                <p>Maximilien Luce <br>
+                    Morning, Interior, 1890</p>
+            </div>
+            <div class="column">
+                <img src="image5.jpg" alt="Expressionism" class="column-image">
+                <h2>Expressionism</h2>
+                <p>Edvard Munch <br>
+                    The Scream, 1983 </p>
+            </div>
+        </section>
+
+        <section class="segment" id="about">
+            <h2>About Section</h2>
+            <p>About content goes here</p>
+        </section>
+
+        <section class="segment">
+            <h2>Services</h2>
+            <p>Services content goes here</p>
+        </section>
+
+        <section class="segment">
+            <h2>Contact</h2>
+            <p>Contact content goes here</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Hai</p>
+    </footer>
+
+    <script>
+        // Navbar slide up on scroll
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                // Scrolling down - hide navbar
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up - show navbar
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
 </body>
 </html>
