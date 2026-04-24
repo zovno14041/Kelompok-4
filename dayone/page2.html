@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suatu Galeri</title>
+    <title>Fauvisme</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-fade-in">
     <div class="transition-overlay" id="transitionOverlay"></div>
     <nav class="navbar" id="navbar">
         <ul>
-            <li><a href="index.html">⌂</a></li>
-            <li class="nav-right"><a href="page2.html" class="page-transition">→</a></li>
+            <li><a href="index.html" class="page-transition">←</a></li>
+             <li class="nav-right"><a href="page2.html" class="page-transition">→</a></li>
         </ul>
     </nav>
 
     <header class="hero-section">
-        <h1>suatu galeri, disuatu hari nanti,</h1>
+        <h1>galeri fauvisme</h1>
     </header>
 
     <main class="content">
         <section class="column-section top-row">
             <div class="column">
-                <img src="images/image1.png" alt="Fauvism" class="column-image" onclick="openLightbox('images/image1.png', 'Fauvism', 'Portrait of Madame Matisse by Henri Matisse, 1905. via the National Gallery of Denmark, Copenhagen. Fauvism was a revolutionary, short-lived, early 20th-century art movement (roughly 1905–1908) that flourished in France, characterized by an intense, non-naturalistic use of color and spontaneous brushwork to express emotion.')">
+                <img src="image1.png" alt="Fauvism" class="column-image" onclick="openLightbox('image1.png', 'Fauvism', 'Portrait of Madame Matisse by Henri Matisse, 1905. via the National Gallery of Denmark, Copenhagen. Fauvism was a revolutionary, short-lived, early 20th-century art movement (roughly 1905–1908) that flourished in France, characterized by an intense, non-naturalistic use of color and spontaneous brushwork to express emotion.')">
                 <h2>Fauvism</h2>
                 <p>Portrait of Madame Matisse by Henri Matisse, 1905. via the National Gallery of Denmark, Copenhagen.</p>
             </div>
             <div class="column">
-                <img src="images/image2.png" alt="Suprematism" class="column-image" onclick="openLightbox('images/image2.png', 'Suprematism', 'Woman at the Tram Stop by Kazimir Malevich, 1913, via Stedelijk Museum, Amsterdam. Suprematism is an early 20th-century Russian avant-garde art movement, founded by Kazimir Malevich around 1913, focusing on pure geometric abstraction and the supremacy of pure feeling. ')">
+                <img src="image2.png" alt="Suprematism" class="column-image" onclick="openLightbox('image2.png', 'Suprematism', 'Woman at the Tram Stop by Kazimir Malevich, 1913, via Stedelijk Museum, Amsterdam. Suprematism is an early 20th-century Russian avant-garde art movement, founded by Kazimir Malevich around 1913, focusing on pure geometric abstraction and the supremacy of pure feeling. ')">
                 <h2>Suprematism</h2>
                 <p>Woman at the Tram Stop by Kazimir Malevich, 1913, via Stedelijk Museum, Amsterdam. </p>
             </div>
             <div class="column">
-                <img src="images/image3.jpg" alt="Cubism" class="column-image" onclick="openLightbox('images/image3.jpg', 'Cubism', 'Three Musicians by Pablo Picasso, 1921, via the Pablo Picasso Museum, Barcelona. Cubism was a revolutionary art movement that fragmented objects into geometric shapes, showing multiple perspectives simultaneously.')">
+                <img src="image3.jpg" alt="Cubism" class="column-image" onclick="openLightbox('image3.jpg', 'Cubism', 'Three Musicians by Pablo Picasso, 1921, via the Pablo Picasso Museum, Barcelona. Cubism was a revolutionary art movement that fragmented objects into geometric shapes, showing multiple perspectives simultaneously.')">
                 <h2>Cubism</h2>
                 <p>Three Musicians by Pablo Picasso, 1921, via the Pablo Picasso Museum, Barcelona.</p>
             </div>
@@ -40,34 +40,17 @@
 
         <section class="column-section bottom-row">
             <div class="column">
-                <img src="images/image4.jpg" alt="Pointillist" class="column-image" onclick="openLightbox('images/image4.jpg', 'Pointillism', 'Morning, Interior, by Maximilien Luce, 1890, via the Metropolitan Museum of Art, New York City. Pointillism uses small dots of pure color to create images when viewed from a distance, pioneered by Georges Seurat.')">
+                <img src="image4.jpg" alt="Pointillist" class="column-image" onclick="openLightbox('image4.jpg', 'Pointillism', 'Morning, Interior, by Maximilien Luce, 1890, via the Metropolitan Museum of Art, New York City. Pointillism uses small dots of pure color to create images when viewed from a distance, pioneered by Georges Seurat.')">
                 <h2>Pointillist</h2>
                 <p>
                     Morning, Interior, by Maximilien Luce, 1890, via the Metropolitan Museum of Art, New York City.</p>
             </div>
             <div class="column">
-                <img src="images/image5.jpg" alt="Expressionism" class="column-image" onclick="openLightbox('images/image5.jpg', 'Expressionism', 'The Scream by Edvard Munch, 1983, via the Munch Museum, Oslo. Expressionism emphasizes emotional experience over physical reality, expressing inner feelings through distorted forms and bold colors.')">
+                <img src="image5.jpg" alt="Expressionism" class="column-image" onclick="openLightbox('image5.jpg', 'Expressionism', 'The Scream by Edvard Munch, 1983, via the Munch Museum, Oslo. Expressionism emphasizes emotional experience over physical reality, expressing inner feelings through distorted forms and bold colors.')">
                 <h2>Expressionism</h2>
                 <p>
                     The Scream by Edvard Munch, 1983, via the Munch Museum, Oslo.</p>
             </div>
-        </section>
-
-        <section class="segment" id="about">
-            <h2>About</h2>
-            <p>hai. aku fish, ketua dari kelompok 4. ini adalah percobaan pembuatan website bertemakan seni lukis simpel. </p>
-        </section>
-
-        <section class="segment">
-            <h2>Anggota Kelompok</h2>
-            <p>anggota kami berisikan; hafizh, regan, nia, keisha, devita, dan adiasto.</p>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>hai. is fishu.</p>
-    </footer>
-
     <script>
         // Navbar slide up on scroll
         const navbar = document.getElementById('navbar');
