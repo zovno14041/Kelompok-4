@@ -7,20 +7,52 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: url('images/background.jpg') no-repeat center center fixed;
+    background: url('images/bg/background.jpg') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     position: relative;
 }
 
+/* Custom background support - override per page */
+body.bg-fauvism {
+    background: url('images/bg/bg-fauvism.jpg') no-repeat center center fixed !important;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+body.bg-suprematism {
+    background: url('images/bg/bg-suprematism.jpg') no-repeat center center fixed !important;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+body.bg-cubism {
+    background: url('images/bg/bg-cubism.jpg') no-repeat center center fixed !important;
+    width: fill;
+    height: auto;
+    object-fit: cover;
+    background-size: fill;
+}
+body.bg-pointillism {
+    background: url('images/bg/bg-pointillist.jpg') no-repeat center center fixed !important;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+body.bg-expressionism {
+    background: url('images/bg/bg-expressionism.jpg') no-repeat center center fixed !important;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+
 h1 {
     font-size: 3em;
     font-weight: bold;
-
     background: inherit;
     -webkit-background-clip: text;
     color: rgb(255, 255, 255);
-
     filter: blur(0.7px);
     text-shadow: 0 0 10px rgba(255,255,255,0.6);
 }
