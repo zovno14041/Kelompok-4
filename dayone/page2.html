@@ -10,8 +10,8 @@
     <div class="transition-overlay" id="transitionOverlay"></div>
     <nav class="navbar" id="navbar">
         <ul>
-            <li><a href="index.html" class="page-transition">←</a></li>
-             <li class="nav-right"><a href="page2.html" class="page-transition">→</a></li>
+            <li><a href="index.html" class="page-transition custom-tooltip" data-tooltip="Go back home?">←</a></li>
+             <li class="nav-right"><a href="page3.html" class="page-transition custom-tooltip" data-tooltip="Suprematism next.">→</a></li>
         </ul>
     </nav>
 
@@ -22,35 +22,47 @@
     <main class="content">
         <section class="column-section top-row">
             <div class="column">
-                <img src="image1.png" alt="Fauvism" class="column-image" onclick="openLightbox('image1.png', 'Fauvism', 'Portrait of Madame Matisse by Henri Matisse, 1905. via the National Gallery of Denmark, Copenhagen. Fauvism was a revolutionary, short-lived, early 20th-century art movement (roughly 1905–1908) that flourished in France, characterized by an intense, non-naturalistic use of color and spontaneous brushwork to express emotion.')">
-                <h2>Fauvism</h2>
-                <p>Portrait of Madame Matisse by Henri Matisse, 1905. via the National Gallery of Denmark, Copenhagen.</p>
+                <img src="[placeholderimage].png" alt="Placeholder1" class="column-image custom-tooltip" data-tooltip="Click me to learn more!" onclick="openLightbox('[placeholderimage].png', '[placeholdertext]', '[placeholderdescription]')">
+                <h2>[placeholdertext]</h2>
+                <p>[placeholderdescription]</p>
             </div>
             <div class="column">
-                <img src="image2.png" alt="Suprematism" class="column-image" onclick="openLightbox('image2.png', 'Suprematism', 'Woman at the Tram Stop by Kazimir Malevich, 1913, via Stedelijk Museum, Amsterdam. Suprematism is an early 20th-century Russian avant-garde art movement, founded by Kazimir Malevich around 1913, focusing on pure geometric abstraction and the supremacy of pure feeling. ')">
-                <h2>Suprematism</h2>
-                <p>Woman at the Tram Stop by Kazimir Malevich, 1913, via Stedelijk Museum, Amsterdam. </p>
+                <img src="[placeholderimage2].png" alt="Placeholder2" class="column-image custom-tooltip" data-tooltip="Click me to learn more!" onclick="openLightbox('[placeholderimage2].png', '[placeholdertext2]', '[placeholderdescription2]')">
+                <h2>[placeholdertext2]</h2>
+                <p>[placeholderdescription2]</p>
             </div>
             <div class="column">
-                <img src="image3.jpg" alt="Cubism" class="column-image" onclick="openLightbox('image3.jpg', 'Cubism', 'Three Musicians by Pablo Picasso, 1921, via the Pablo Picasso Museum, Barcelona. Cubism was a revolutionary art movement that fragmented objects into geometric shapes, showing multiple perspectives simultaneously.')">
-                <h2>Cubism</h2>
-                <p>Three Musicians by Pablo Picasso, 1921, via the Pablo Picasso Museum, Barcelona.</p>
+                <img src="[placeholderimage3].png" alt="Placeholder3" class="column-image custom-tooltip" data-tooltip="Click me to learn more!" onclick="openLightbox('[placeholderimage3].png', '[placeholdertext3]', '[placeholderdescription3]')">
+                <h2>[placeholdertext3]</h2>
+                <p>[placeholderdescription3]</p>
             </div>
         </section>
 
         <section class="column-section bottom-row">
             <div class="column">
-                <img src="image4.jpg" alt="Pointillist" class="column-image" onclick="openLightbox('image4.jpg', 'Pointillism', 'Morning, Interior, by Maximilien Luce, 1890, via the Metropolitan Museum of Art, New York City. Pointillism uses small dots of pure color to create images when viewed from a distance, pioneered by Georges Seurat.')">
-                <h2>Pointillist</h2>
-                <p>
-                    Morning, Interior, by Maximilien Luce, 1890, via the Metropolitan Museum of Art, New York City.</p>
+                <img src="[placeholderimage4].png" alt="Placeholder4" class="column-image custom-tooltip" data-tooltip="Click me to learn more!" onclick="openLightbox('[placeholderimage4].png', '[placeholdertext4]', '[placeholderdescription4]')">
+                <h2>[placeholdertext4]</h2>
+                <p>[placeholderdescription4]</p>
             </div>
             <div class="column">
-                <img src="image5.jpg" alt="Expressionism" class="column-image" onclick="openLightbox('image5.jpg', 'Expressionism', 'The Scream by Edvard Munch, 1983, via the Munch Museum, Oslo. Expressionism emphasizes emotional experience over physical reality, expressing inner feelings through distorted forms and bold colors.')">
-                <h2>Expressionism</h2>
-                <p>
-                    The Scream by Edvard Munch, 1983, via the Munch Museum, Oslo.</p>
+                <img src="[placeholderimage5].png" alt="Placeholder5" class="column-image custom-tooltip" data-tooltip="Click me to learn more!" onclick="openLightbox('[placeholderimage5].png', '[placeholdertext5]', '[placeholderdescription5]')">
+                <h2>[placeholdertext5]</h2>
+                <p>[placeholderdescription5]</p>
             </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-page-indicator">
+            <a href="index.html">Home</a>
+            <a href="page2.html" class="current">Fauvisme</a>
+            <a href="page3.html">Suprematisme</a>
+            <a href="page4.html">Kubisme</a>
+            <a href="page5.html">Pointilisme</a>
+            <a href="page6.html">Ekspresionisme</a>
+        </div>
+    </footer>
+
     <script>
         // Navbar slide up on scroll
         const navbar = document.getElementById('navbar');
@@ -104,6 +116,69 @@
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
         }
+
+        // Custom Tooltip System
+        function createTooltips() {
+            const tooltipElements = document.querySelectorAll('[data-tooltip]');
+            
+            tooltipElements.forEach(el => {
+                el.addEventListener('mouseenter', (e) => {
+                    const text = el.getAttribute('data-tooltip');
+                    if (!text) return;
+                    
+                    const existing = document.querySelector('.js-tooltip');
+                    if (existing) existing.remove();
+                    
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'js-tooltip';
+                    tooltip.textContent = text;
+                    document.body.appendChild(tooltip);
+                    
+                    const rect = el.getBoundingClientRect();
+                    
+                    let top = rect.top - 10;
+                    let left = rect.left + (rect.width / 2);
+                    
+                    if (el.classList.contains('column-image')) {
+                        top = rect.bottom + 10;
+                    }
+                    
+                    tooltip.style.cssText = `
+                        position: fixed;
+                        top: ${top}px;
+                        left: ${left}px;
+                        transform: translateX(-50%);
+                        background: rgba(0, 0, 0, 0.95);
+                        color: #fff;
+                        padding: 8px 14px;
+                        border-radius: 8px;
+                        font-size: 13px;
+                        font-family: 'Courier New', Courier, monospace;
+                        z-index: 10000;
+                        pointer-events: none;
+                        white-space: nowrap;
+                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                        opacity: 0;
+                        transition: opacity 0.2s ease;
+                    `;
+                    
+                    requestAnimationFrame(() => {
+                        tooltip.style.opacity = '1';
+                    });
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    const tooltip = document.querySelector('.js-tooltip');
+                    if (tooltip) {
+                        tooltip.style.opacity = '0';
+                        setTimeout(() => tooltip.remove(), 200);
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', createTooltips);
     </script>
 
     <!-- Lightbox -->

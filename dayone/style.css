@@ -44,7 +44,7 @@ h1 {
     box-shadow: 0 2px 20px rgba(255, 255, 255, 0.2);
     z-index: 1000;
     transition: all 0.3s ease;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .navbar::before {
@@ -161,14 +161,137 @@ h1 {
 
 /* Footer */
 .footer {
-    padding: 30px;
+    padding: 20px 30px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
     margin-top: 40px;
+    position: relative;
 }
 
 .footer p {
     color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* Footer Center Page Indicator Bar */
+.footer-page-indicator {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 20px;
+    border-radius: 0 0 10px 10px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.footer-page-indicator a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-page-indicator a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.footer-page-indicator a.current {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+    cursor: default;
+}
+
+/* Custom Tooltip Styles */
+.custom-tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+}
+
+.custom-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: rgba(0, 0, 0, 0.95);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10000;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+}
+
+.custom-tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-15px);
+}
+
+/* Tooltip arrow */
+.custom-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-2px);
+    border: 6px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.95);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10000;
+}
+
+.custom-tooltip:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-7px);
+}
+
+/* Image tooltip positioning */
+.column-image.custom-tooltip::after {
+    bottom: auto;
+    top: 100%;
+    margin-top: 10px;
+}
+
+.column-image.custom-tooltip:hover::after {
+    transform: translateX(-50%) translateY(0);
+}
+
+.column-image.custom-tooltip::before {
+    bottom: auto;
+    top: 100%;
+    border-top-color: transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.95);
+    margin-top: -2px;
+    z-index: 10000;
+}
+
+.column-image.custom-tooltip:hover::before {
+    transform: translateX(-50%) translateY(0);
 }
 
 .navbar ul {
@@ -196,6 +319,7 @@ h1 {
     border-radius: 25px;    background: rgba(255, 255, 255, 0.9); /* Slightly white background for visibility */    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .navbar li a::before {
@@ -246,7 +370,7 @@ h1 {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    z-index: 9999;
+    z-index: 9000;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease, filter 0.5s ease;
