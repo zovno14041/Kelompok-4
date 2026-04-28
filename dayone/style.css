@@ -7,11 +7,57 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: url('background.jpg') no-repeat center center fixed;
+    background: url('images/bg/background.jpg') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     position: relative;
 }
+
+/* Custom background support - override per page */
+body.bg-fauvism {
+    background: url('images/bg/bg-fauvism.jpg') no-repeat center center fixed !important;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+body.bg-suprematism {
+    background: url('images/bg/bg-suprematism.jpg') no-repeat center center fixed !important;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+body.bg-cubism {
+    background: url('images/bg/bg-cubism.jpg') no-repeat center center fixed !important;
+    width: fill;
+    height: auto;
+    object-fit: cover;
+    background-size: fill;
+}
+body.bg-pointillism {
+    background: url('images/bg/bg-pointillist.jpg') no-repeat center center fixed !important;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+body.bg-expressionism {
+    background: url('images/bg/bg-expressionism.jpg') no-repeat center center fixed !important;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+    background: inherit;
+    -webkit-background-clip: text;
+    color: rgb(255, 255, 255);
+    filter: blur(0.7px);
+    text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+
 
 /* Stylized Navbar with Custom Background */
 .navbar {
@@ -30,7 +76,7 @@ body {
     box-shadow: 0 2px 20px rgba(255, 255, 255, 0.2);
     z-index: 1000;
     transition: all 0.3s ease;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .navbar::before {
@@ -80,7 +126,7 @@ body {
     background: rgba(255, 255, 255, 0.15);
     border-radius: 15px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(210, 180, 140, 0.5);
     display: flex;
     flex-direction: column;
 }
@@ -107,7 +153,7 @@ body {
 
 .column-section .column h2 {
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
 }
@@ -122,12 +168,12 @@ body {
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 /* Segments */
 .segment {
-    padding: 60px 30px;
+    padding: 30px 30px;
     margin: 20px 30px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
@@ -147,14 +193,137 @@ body {
 
 /* Footer */
 .footer {
-    padding: 30px;
+    padding: 20px 30px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
     margin-top: 40px;
+    position: relative;
 }
 
 .footer p {
     color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* Footer Center Page Indicator Bar */
+.footer-page-indicator {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 20px;
+    border-radius: 0 0 10px 10px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.footer-page-indicator a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-page-indicator a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.footer-page-indicator a.current {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+    cursor: default;
+}
+
+/* Custom Tooltip Styles */
+.custom-tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+}
+
+.custom-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: rgba(0, 0, 0, 0.95);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10000;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+}
+
+.custom-tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-15px);
+}
+
+/* Tooltip arrow */
+.custom-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-2px);
+    border: 6px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.95);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10000;
+}
+
+.custom-tooltip:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-7px);
+}
+
+/* Image tooltip positioning */
+.column-image.custom-tooltip::after {
+    bottom: auto;
+    top: 100%;
+    margin-top: 10px;
+}
+
+.column-image.custom-tooltip:hover::after {
+    transform: translateX(-50%) translateY(0);
+}
+
+.column-image.custom-tooltip::before {
+    bottom: auto;
+    top: 100%;
+    border-top-color: transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.95);
+    margin-top: -2px;
+    z-index: 10000;
+}
+
+.column-image.custom-tooltip:hover::before {
+    transform: translateX(-50%) translateY(0);
 }
 
 .navbar ul {
@@ -164,10 +333,11 @@ body {
     margin: 0;
     padding: 0;
     justify-content: space-between;
+    align-items: center;
 }
 
-.navbar li {
-    /* margin: 0 20px; */ /* Removed to allow space-between to work */
+.navbar ul li:first-child {
+    margin-right: auto;
 }
 
 .navbar li a {
@@ -181,6 +351,7 @@ body {
     border-radius: 25px;    background: rgba(255, 255, 255, 0.9); /* Slightly white background for visibility */    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .navbar li a::before {
@@ -196,6 +367,82 @@ body {
 
 .navbar li a:hover::before {
     left: 100%;
+}
+
+/* Right nav button positioning */
+.navbar li.nav-right {
+    margin-left: auto;
+}
+
+/* Page transition button */
+.navbar li.nav-right a {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar li.nav-right a:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* Page transition overlay */
+.transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 9000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, filter 0.5s ease;
+}
+
+.transition-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+    filter: blur(0);
+}
+
+/* Fade in container */
+.fade-in-container {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Page2 full page fade in */
+body.page-fade-in {
+    animation: pageFadeIn 0.8s ease forwards;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .navbar li a.icon-link {
@@ -219,7 +466,6 @@ body {
 
 /* Content below navbar */
 h1 {
-    color: #fff;
     text-align: center;
     margin-top: 100px;
     font-size: 3em;
@@ -243,6 +489,8 @@ p {
     background: rgba(0, 0, 0, 0);
     z-index: 2000;
     display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 #lightbox.active {
@@ -250,7 +498,12 @@ p {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    opacity: 1;
     animation: fadeIn 0.4s ease forwards;
+}
+
+#lightbox.closing {
+    opacity: 0;
 }
 
 @keyframes fadeIn {
@@ -310,7 +563,7 @@ p {
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
